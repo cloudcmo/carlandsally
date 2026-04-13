@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --cream: #f7f3ec;
       --paper: #faf8f4;
@@ -22,331 +21,94 @@
       --display: 'Playfair Display', Georgia, serif;
       --sans: 'Source Sans 3', system-ui, sans-serif;
     }
-
     html { font-size: 16px; scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      font-weight: 300;
-      color: var(--ink);
-      background: var(--paper);
-      -webkit-font-smoothing: antialiased;
-    }
+    body { font-family: var(--sans); font-weight: 300; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
 
-    /* ── Layout ── */
     .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
-    .wide { max-width: 960px; margin: 0 auto; padding: 0 32px; }
 
-    /* ── Header ── */
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 24px 0;
-      background: var(--paper);
-    }
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .site-name {
-      font-family: var(--display);
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--ink);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-    .site-date {
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
+    header { border-bottom: 1px solid var(--border); padding: 24px 0; background: var(--paper); }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    .site-name { font-family: var(--display); font-size: 18px; font-weight: 400; color: var(--ink); text-decoration: none; }
+    .site-date { font-size: 13px; color: var(--muted); font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; }
 
-    /* ── Hero ── */
-    .hero {
-      padding: 88px 0 80px;
-      border-bottom: 1px solid var(--border);
-      background: var(--cream);
-    }
-    .hero-inner { max-width: 680px; }
-    .hero-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--warm);
-      margin-bottom: 28px;
-    }
-    .hero h1 {
-      font-family: var(--display);
-      font-size: clamp(48px, 8vw, 80px);
-      font-weight: 400;
-      line-height: 1.0;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 32px;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--warm);
-    }
-    .hero-body {
-      font-size: 20px;
-      line-height: 1.7;
-      color: var(--muted);
-      font-weight: 300;
-      max-width: 540px;
-    }
+    .hero { padding: 88px 0 80px; border-bottom: 1px solid var(--border); background: var(--cream); }
+    .hero-label { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--warm); margin-bottom: 28px; }
+    .hero h1 { font-family: var(--display); font-size: clamp(48px, 8vw, 80px); font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 32px; }
+    .hero h1 em { font-style: italic; color: var(--warm); }
+    .hero-body { font-size: 19px; line-height: 1.75; color: var(--muted); font-weight: 300; max-width: 520px; }
     .hero-body p + p { margin-top: 16px; }
 
-    /* ── Sections ── */
     section { padding: 72px 0; border-bottom: 1px solid var(--border); }
     section:last-of-type { border-bottom: none; }
     .band { background: var(--cream); }
+    .section-label { font-size: 10px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--warm); margin-bottom: 32px; }
 
-    .section-label {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--warm);
-      margin-bottom: 32px;
-    }
-
-    h2 {
-      font-family: var(--display);
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 24px;
-    }
+    h2 { font-family: var(--display); font-size: clamp(28px, 4vw, 42px); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 24px; }
     h2 em { font-style: italic; }
 
     .body-text { font-size: 17px; line-height: 1.8; color: var(--muted); font-weight: 300; }
     .body-text p + p { margin-top: 16px; }
     .body-text strong { font-weight: 500; color: var(--ink); }
-    .body-text a { color: var(--warm); text-underline-offset: 3px; }
 
-    /* ── Two-col ── */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-    }
-    @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
-
-    /* ── The Day: timeline ── */
+    /* Timeline */
     .timeline { list-style: none; margin-top: 8px; }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 20px;
-      padding: 20px 0;
-      border-top: 0.5px solid var(--border);
-      align-items: start;
-    }
-    .timeline-time {
-      font-family: var(--display);
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--warm);
-      padding-top: 2px;
-    }
-    .timeline-detail h3 {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 4px;
-    }
-    .timeline-detail p {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.65;
-      font-weight: 300;
-    }
-    .timeline-detail address {
-      font-style: normal;
-      font-size: 14px;
-      color: var(--hint);
-      margin-top: 4px;
-      line-height: 1.5;
-    }
+    .timeline-item { display: grid; grid-template-columns: 80px 1fr; gap: 20px; padding: 28px 0; border-top: 0.5px solid var(--border); align-items: start; }
+    .timeline-time { font-family: var(--display); font-size: 22px; font-weight: 400; color: var(--warm); padding-top: 2px; }
+    .timeline-detail h3 { font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+    .timeline-detail p { font-size: 15px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+    .timeline-detail address { font-style: normal; font-size: 14px; color: var(--hint); margin-top: 6px; line-height: 1.5; }
 
-    /* ── Info cards ── */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2px;
-      margin-top: 8px;
-    }
-    .info-card {
-      background: var(--paper);
-      padding: 28px 28px;
-      border: 0.5px solid var(--border);
-    }
-    .info-card h3 {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--warm);
-      margin-bottom: 12px;
-    }
-    .info-card p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--muted);
-      font-weight: 300;
-    }
-    .info-card p strong { font-weight: 500; color: var(--ink); }
-
-    /* ── Rose note ── */
-    .rose-note {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 16px 22px;
-      background: rgba(200, 96, 42, 0.06);
-      border-left: 3px solid var(--warm);
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.6;
-      font-style: italic;
-    }
-    .rose-note strong { font-style: normal; font-weight: 500; color: var(--ink); }
-
-    /* ── Animation embed ── */
-    .embed-wrap {
-      margin-top: 28px;
-      position: relative;
-      padding-bottom: 75%;
-      height: 0;
-      overflow: hidden;
-      border: 0.5px solid var(--border);
-    }
-    .embed-wrap iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-    }
-
-    /* ── Hotels ── */
-    .hotel-list { list-style: none; margin-top: 4px; }
-    .hotel-item {
-      padding: 20px 0;
-      border-top: 0.5px solid var(--border);
-    }
-    .hotel-item:last-child { border-bottom: 0.5px solid var(--border); }
-    .hotel-item a {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--ink);
-      text-decoration: none;
-    }
-    .hotel-item a:hover { color: var(--warm); }
-    .hotel-item p {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 4px;
-      line-height: 1.6;
-      font-weight: 300;
-    }
-
-    /* ── Photo section ── */
-    .photo-note {
-      font-size: 17px;
-      line-height: 1.8;
-      color: var(--muted);
-      font-weight: 300;
-    }
-    .photographer-credit {
-      margin-top: 20px;
-      font-size: 14px;
-      color: var(--hint);
-    }
-    .photographer-credit a { color: var(--warm); text-underline-offset: 2px; }
-
-    /* ── Site images ── */
-    .site-img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin-top: 24px;
-      border: 0.5px solid var(--border);
-    }
-    .img-caption {
-      font-size: 12px;
-      color: var(--hint);
-      margin-top: 8px;
-      font-style: italic;
-    }
-    .proposal-img {
-      max-width: 280px;
-      float: right;
-      margin: 0 0 24px 40px;
-      border: 0.5px solid var(--border);
-    }
-    @media (max-width: 600px) {
-      .proposal-img { float: none; margin: 24px 0 0; max-width: 100%; }
-    }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--ink);
-      padding: 48px 0;
-      margin-top: 0;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-name {
-      font-family: var(--display);
-      font-size: 20px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.9);
-    }
-    .footer-date {
-      font-size: 13px;
-      color: rgba(255,255,255,0.35);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    /* ── Map link ── */
-    .map-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--warm);
-      text-decoration: none;
-      margin-top: 10px;
-      letter-spacing: 0.02em;
-    }
+    /* Map link */
+    .map-link { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 500; color: var(--warm); text-decoration: none; margin-top: 8px; }
     .map-link:hover { text-decoration: underline; text-underline-offset: 3px; }
     .map-link::before { content: '↗'; }
 
-    /* ── Intro photo ── */
-    .hero-photo {
-      width: 100%;
-      max-width: 480px;
-      margin-top: 48px;
-      display: block;
-    }
+    /* Images */
+    .site-img { display: block; max-width: 100%; height: auto; margin-top: 20px; border: 0.5px solid var(--border); }
+    .img-caption { font-size: 12px; color: var(--hint); margin-top: 6px; font-style: italic; }
+
+    /* Info grid */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2px; margin-top: 8px; }
+    .info-card { background: var(--paper); padding: 28px; border: 0.5px solid var(--border); }
+    .info-card h3 { font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--warm); margin-bottom: 12px; }
+    .info-card p { font-size: 15px; line-height: 1.7; color: var(--muted); font-weight: 300; }
+    .info-card p strong { font-weight: 500; color: var(--ink); }
+    .info-card .site-img { max-width: 220px; }
+
+    /* Rose note */
+    .rose-note { display: block; margin-top: 16px; padding: 14px 18px; background: rgba(200,96,42,0.06); border-left: 3px solid var(--warm); font-size: 15px; color: var(--muted); line-height: 1.6; font-style: italic; }
+    .rose-note strong { font-style: normal; font-weight: 500; color: var(--ink); }
+
+    /* Image strip */
+    .img-strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2px; margin-top: 28px; }
+    .img-strip-item { position: relative; overflow: hidden; }
+    .img-strip-item img { width: 100%; height: 200px; object-fit: cover; display: block; border: 0.5px solid var(--border); }
+    .img-strip-item p { font-size: 12px; color: var(--hint); margin-top: 6px; font-style: italic; padding: 0 2px; }
+
+    /* Hotels */
+    .hotel-list { list-style: none; margin-top: 4px; }
+    .hotel-item { padding: 20px 0; border-top: 0.5px solid var(--border); }
+    .hotel-item:last-child { border-bottom: 0.5px solid var(--border); }
+    .hotel-item a { font-size: 16px; font-weight: 500; color: var(--ink); text-decoration: none; }
+    .hotel-item a:hover { color: var(--warm); }
+    .hotel-item p { font-size: 14px; color: var(--muted); margin-top: 4px; line-height: 1.6; font-weight: 300; }
+
+    /* Video */
+    .video-wrap { margin-top: 28px; border: 0.5px solid var(--border); background: var(--ink); }
+    .video-wrap video { width: 100%; display: block; max-height: 480px; }
+
+    /* Footer */
+    footer { background: var(--ink); padding: 48px 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-name { font-family: var(--display); font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.9); }
+    .footer-date { font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; text-transform: uppercase; }
 
     @media (max-width: 640px) {
       .container { padding: 0 20px; }
       .hero { padding: 56px 0 52px; }
       section { padding: 52px 0; }
       header .site-date { display: none; }
+      .timeline-item { grid-template-columns: 60px 1fr; }
     }
   </style>
 </head>
@@ -365,10 +127,10 @@
     <p class="hero-label">Mr &amp; Mrs Mesner Lyons</p>
     <h1>We got<br><em>married.</em></h1>
     <div class="hero-body">
-      <img src="images/I-Shot-J-R.jpg" alt="He did" class="proposal-img">
       <p>Saturday 5 September 2009. South London. Sun out. Good people.</p>
       <p>Thanks so much for celebrating with us. We wanted the day to be fun, informal and friendly — and you all made it exactly that.</p>
     </div>
+    <img src="images/gettingmarryed-header.png" alt="Carl and Sally" class="site-img" style="margin-top: 40px; max-width: 560px; border: none;">
   </div>
 </section>
 
@@ -394,7 +156,7 @@
           <p>The Bread and Roses, Clapham. We ate, drank and danced (some of us) until about 7pm. Transport was laid on from the registry office.</p>
           <img src="images/charabang.jpg" alt="The charabanc" class="site-img">
           <p class="img-caption">The transport between venues</p>
-          <address>68 Clapham Manor St, London SW4 6DZ</address>
+          <address style="margin-top: 12px;">68 Clapham Manor St, London SW4 6DZ</address>
           <a class="map-link" href="https://maps.google.co.uk/?q=68+Clapham+Manor+Street+London+SW4+6DZ" target="_blank" rel="noopener">View on Google Maps</a>
         </div>
       </li>
@@ -402,8 +164,18 @@
   </div>
 </section>
 
-<!-- Good to know -->
+<!-- He did -->
 <section class="band">
+  <div class="container">
+    <p class="section-label">How it started</p>
+    <h2>He did.</h2>
+    <p class="body-text">The proposal. He did.</p>
+    <img src="images/I-Shot-J-R.jpg" alt="He did" class="site-img" style="max-width: 360px;">
+  </div>
+</section>
+
+<!-- Good to know -->
+<section>
   <div class="container">
     <p class="section-label">Good to know</p>
     <h2>The details.</h2>
@@ -411,20 +183,35 @@
       <div class="info-card">
         <h3>Dress code</h3>
         <p>Absolutely informal — whatever you'd normally wear on a Saturday afternoon. Jeans or a fancy hat, really anything goes.</p>
-        <div class="rose-note">One request: <strong>incorporate a rose</strong> — in any way you like.</div>
-        <img src="images/rose.png" alt="A rose" class="site-img" style="max-width:200px;">
+        <span class="rose-note">One request: <strong>incorporate a rose</strong> — in any way you like.</span>
+        <img src="images/rose.png" alt="A rose" class="site-img" style="max-width: 180px; border: none;">
       </div>
       <div class="info-card">
         <h3>Getting there</h3>
         <p>We recommended not driving. The Clapham reception is walking distance from <strong>Clapham Common</strong> and <strong>Clapham North</strong> (Northern line), or <strong>Clapham High Street</strong> (Overground).</p>
+        <img src="images/parking.png" alt="Parking" class="site-img">
       </div>
       <div class="info-card">
         <h3>Kids</h3>
         <p>Very much welcome. At the ceremony, younger ones on parents' laps or in a row at the front. Plenty of room at the reception, plus an outside space.</p>
+        <img src="images/kids.jpg" alt="" class="site-img">
       </div>
       <div class="info-card">
         <h3>Presents</h3>
         <p>Your presence is present enough — really. But if you wanted to, we had a honeymoon fund with Trailfinders. Reference <strong>5B15TG</strong>, surname <strong>Lyons</strong> or <strong>Mesner</strong>.</p>
+        <img src="images/presents.png" alt="" class="site-img">
+      </div>
+      <div class="info-card">
+        <h3>Contact</h3>
+        <p>Carl <strong>07973 325 404</strong></p>
+        <p>Sally <strong>07903 112 664</strong></p>
+        <p style="margin-top: 10px;">Best man Nick <strong>07545 618262</strong> for any "I'm lost!" questions on the day.</p>
+        <img src="images/trimphone.gif" alt="" class="site-img" style="max-width: 160px;">
+      </div>
+      <div class="info-card">
+        <h3>Photos</h3>
+        <p>We had an official photographer — <strong>Peter Crane</strong> — for the day. If you took any good shots yourself, please send them over.</p>
+        <img src="images/camera.png" alt="" class="site-img" style="max-width: 120px; border: none;">
       </div>
     </div>
   </div>
@@ -436,14 +223,28 @@
     <p class="section-label">A special thing</p>
     <h2>The wedding<br><em>animation.</em></h2>
     <p class="body-text">Our friends Lucy and Steve made this for us. It's wonderful. Well worth a madcap minute.</p>
-    <div class="embed-wrap" style="margin-top: 32px; padding-bottom: 56.25%;">
-      <iframe src="https://player.vimeo.com/video/7105697" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <div class="video-wrap">
+      <video controls preload="metadata">
+        <source src="images/wedding_animation (360p).mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
     </div>
   </div>
 </section>
 
-<!-- Hotels -->
+<!-- Nick -->
 <section>
+  <div class="container">
+    <p class="section-label">The best man</p>
+    <h2>Nick.<br><em>He's done this before.</em></h2>
+    <p class="body-text">Contact Nick on <strong>07545 618262</strong> with any "I'm lost!" type questions on the day.</p>
+    <img src="images/flasheart.png" alt="Nick the best man" class="site-img" style="max-width: 360px;">
+    <p class="img-caption">Nick has previous form as best man.</p>
+  </div>
+</section>
+
+<!-- Hotels -->
+<section class="band">
   <div class="container">
     <p class="section-label">Staying over</p>
     <h2>Hotels nearby.</h2>
@@ -466,13 +267,13 @@
 </section>
 
 <!-- Sign off -->
-<section class="band">
+<section>
   <div class="container">
     <p class="section-label">That's all</p>
     <h2>Lots of love<br><em>from us.</em></h2>
     <div class="body-text">
       <p>Thank you for being there. It was the best day.</p>
-      <p style="margin-top: 24px; font-family: var(--display); font-size: 22px; font-style: italic; color: var(--ink);">Mr &amp; Mrs Mesner Lyons x</p>
+      <p style="margin-top: 28px; font-family: var(--display); font-size: 24px; font-style: italic; color: var(--ink);">Mr &amp; Mrs Mesner Lyons x</p>
     </div>
   </div>
 </section>
