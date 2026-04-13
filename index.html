@@ -269,6 +269,30 @@
     }
     .photographer-credit a { color: var(--warm); text-underline-offset: 2px; }
 
+    /* ── Site images ── */
+    .site-img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin-top: 24px;
+      border: 0.5px solid var(--border);
+    }
+    .img-caption {
+      font-size: 12px;
+      color: var(--hint);
+      margin-top: 8px;
+      font-style: italic;
+    }
+    .proposal-img {
+      max-width: 280px;
+      float: right;
+      margin: 0 0 24px 40px;
+      border: 0.5px solid var(--border);
+    }
+    @media (max-width: 600px) {
+      .proposal-img { float: none; margin: 24px 0 0; max-width: 100%; }
+    }
+
     /* ── Footer ── */
     footer {
       background: var(--ink);
@@ -341,6 +365,7 @@
     <p class="hero-label">Mr &amp; Mrs Mesner Lyons</p>
     <h1>We got<br><em>married.</em></h1>
     <div class="hero-body">
+      <img src="images/I-Shot-J-R.jpg" alt="He did" class="proposal-img">
       <p>Saturday 5 September 2009. South London. Sun out. Good people.</p>
       <p>Thanks so much for celebrating with us. We wanted the day to be fun, informal and friendly — and you all made it exactly that.</p>
     </div>
@@ -367,6 +392,8 @@
         <div class="timeline-detail">
           <h3>Reception</h3>
           <p>The Bread and Roses, Clapham. We ate, drank and danced (some of us) until about 7pm. Transport was laid on from the registry office.</p>
+          <img src="images/charabang.jpg" alt="The charabanc" class="site-img">
+          <p class="img-caption">The transport between venues</p>
           <address>68 Clapham Manor St, London SW4 6DZ</address>
           <a class="map-link" href="https://maps.google.co.uk/?q=68+Clapham+Manor+Street+London+SW4+6DZ" target="_blank" rel="noopener">View on Google Maps</a>
         </div>
@@ -385,6 +412,7 @@
         <h3>Dress code</h3>
         <p>Absolutely informal — whatever you'd normally wear on a Saturday afternoon. Jeans or a fancy hat, really anything goes.</p>
         <div class="rose-note">One request: <strong>incorporate a rose</strong> — in any way you like.</div>
+        <img src="images/rose.png" alt="A rose" class="site-img" style="max-width:200px;">
       </div>
       <div class="info-card">
         <h3>Getting there</h3>
@@ -399,16 +427,6 @@
         <p>Your presence is present enough — really. But if you wanted to, we had a honeymoon fund with Trailfinders. Reference <strong>5B15TG</strong>, surname <strong>Lyons</strong> or <strong>Mesner</strong>.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Photos -->
-<section>
-  <div class="container">
-    <p class="section-label">Photos</p>
-    <h2>The official<br><em>pictures.</em></h2>
-    <p class="photo-note">We had an official photographer for the day — and there are some really lovely ones. If you took any good shots yourself, please send them over.</p>
-    <p class="photographer-credit">Official photography by <a href="http://www.petercranepp.com/" target="_blank" rel="noopener">Peter Crane</a>.</p>
   </div>
 </section>
 
