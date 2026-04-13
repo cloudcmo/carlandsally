@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carl &amp; Sally — 5 September 2009</title>
+  <meta name="description" content="Carl and Sally's wedding, 5 September 2009. Southwark Registry Office and the Bread and Roses, Clapham.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f7f3ec;
+      --paper: #faf8f4;
+      --ink: #1a1714;
+      --muted: #6b6560;
+      --hint: #a09990;
+      --warm: #c8602a;
+      --border: rgba(26,23,20,0.1);
+      --display: 'Playfair Display', Georgia, serif;
+      --sans: 'Source Sans 3', system-ui, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+    .wide { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+      background: var(--paper);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-name {
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .site-date {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 88px 0 80px;
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+    }
+    .hero-inner { max-width: 680px; }
+    .hero-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 32px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--warm);
+    }
+    .hero-body {
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 540px;
+    }
+    .hero-body p + p { margin-top: 16px; }
+
+    /* ── Sections ── */
+    section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .band { background: var(--cream); }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-family: var(--display);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    h2 em { font-style: italic; }
+
+    .body-text { font-size: 17px; line-height: 1.8; color: var(--muted); font-weight: 300; }
+    .body-text p + p { margin-top: 16px; }
+    .body-text strong { font-weight: 500; color: var(--ink); }
+    .body-text a { color: var(--warm); text-underline-offset: 3px; }
+
+    /* ── Two-col ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ── The Day: timeline ── */
+    .timeline { list-style: none; margin-top: 8px; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 20px;
+      padding: 20px 0;
+      border-top: 0.5px solid var(--border);
+      align-items: start;
+    }
+    .timeline-time {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--warm);
+      padding-top: 2px;
+    }
+    .timeline-detail h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .timeline-detail p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+    .timeline-detail address {
+      font-style: normal;
+      font-size: 14px;
+      color: var(--hint);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* ── Info cards ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2px;
+      margin-top: 8px;
+    }
+    .info-card {
+      background: var(--paper);
+      padding: 28px 28px;
+      border: 0.5px solid var(--border);
+    }
+    .info-card h3 {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 12px;
+    }
+    .info-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .info-card p strong { font-weight: 500; color: var(--ink); }
+
+    /* ── Rose note ── */
+    .rose-note {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 16px 22px;
+      background: rgba(200, 96, 42, 0.06);
+      border-left: 3px solid var(--warm);
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .rose-note strong { font-style: normal; font-weight: 500; color: var(--ink); }
+
+    /* ── Animation embed ── */
+    .embed-wrap {
+      margin-top: 28px;
+      position: relative;
+      padding-bottom: 75%;
+      height: 0;
+      overflow: hidden;
+      border: 0.5px solid var(--border);
+    }
+    .embed-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+
+    /* ── Hotels ── */
+    .hotel-list { list-style: none; margin-top: 4px; }
+    .hotel-item {
+      padding: 20px 0;
+      border-top: 0.5px solid var(--border);
+    }
+    .hotel-item:last-child { border-bottom: 0.5px solid var(--border); }
+    .hotel-item a {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .hotel-item a:hover { color: var(--warm); }
+    .hotel-item p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── Photo section ── */
+    .photo-note {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .photographer-credit {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--hint);
+    }
+    .photographer-credit a { color: var(--warm); text-underline-offset: 2px; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--ink);
+      padding: 48px 0;
+      margin-top: 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-name {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+    }
+    .footer-date {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── Map link ── */
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--warm);
+      text-decoration: none;
+      margin-top: 10px;
+      letter-spacing: 0.02em;
+    }
+    .map-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .map-link::before { content: '↗'; }
+
+    /* ── Intro photo ── */
+    .hero-photo {
+      width: 100%;
+      max-width: 480px;
+      margin-top: 48px;
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 20px; }
+      .hero { padding: 56px 0 52px; }
+      section { padding: 52px 0; }
+      header .site-date { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="site-name">Carl &amp; Sally</a>
+    <span class="site-date">5 September 2009</span>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-label">Mr &amp; Mrs Mesner Lyons</p>
+    <h1>We got<br><em>married.</em></h1>
+    <div class="hero-body">
+      <p>Saturday 5 September 2009. South London. Sun out. Good people.</p>
+      <p>Thanks so much for celebrating with us. We wanted the day to be fun, informal and friendly — and you all made it exactly that.</p>
+    </div>
+  </div>
+</section>
+
+<!-- The Day -->
+<section>
+  <div class="container">
+    <p class="section-label">The day</p>
+    <h2>What happened,<br><em>and when.</em></h2>
+    <ul class="timeline">
+      <li class="timeline-item">
+        <span class="timeline-time">11am</span>
+        <div class="timeline-detail">
+          <h3>Ceremony</h3>
+          <p>Southwark Registry Office. We said the words. It was brilliant.</p>
+          <address>34 Peckham Road, London SE5 8QA</address>
+          <a class="map-link" href="https://maps.google.co.uk/?q=34+Peckham+Road+London+SE5+8QA" target="_blank" rel="noopener">View on Google Maps</a>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <span class="timeline-time">12.30</span>
+        <div class="timeline-detail">
+          <h3>Reception</h3>
+          <p>The Bread and Roses, Clapham. We ate, drank and danced (some of us) until about 7pm. Transport was laid on from the registry office.</p>
+          <address>68 Clapham Manor St, London SW4 6DZ</address>
+          <a class="map-link" href="https://maps.google.co.uk/?q=68+Clapham+Manor+Street+London+SW4+6DZ" target="_blank" rel="noopener">View on Google Maps</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Good to know -->
+<section class="band">
+  <div class="container">
+    <p class="section-label">Good to know</p>
+    <h2>The details.</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Dress code</h3>
+        <p>Absolutely informal — whatever you'd normally wear on a Saturday afternoon. Jeans or a fancy hat, really anything goes.</p>
+        <div class="rose-note">One request: <strong>incorporate a rose</strong> — in any way you like.</div>
+      </div>
+      <div class="info-card">
+        <h3>Getting there</h3>
+        <p>We recommended not driving. The Clapham reception is walking distance from <strong>Clapham Common</strong> and <strong>Clapham North</strong> (Northern line), or <strong>Clapham High Street</strong> (Overground).</p>
+      </div>
+      <div class="info-card">
+        <h3>Kids</h3>
+        <p>Very much welcome. At the ceremony, younger ones on parents' laps or in a row at the front. Plenty of room at the reception, plus an outside space.</p>
+      </div>
+      <div class="info-card">
+        <h3>Presents</h3>
+        <p>Your presence is present enough — really. But if you wanted to, we had a honeymoon fund with Trailfinders. Reference <strong>5B15TG</strong>, surname <strong>Lyons</strong> or <strong>Mesner</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Photos -->
+<section>
+  <div class="container">
+    <p class="section-label">Photos</p>
+    <h2>The official<br><em>pictures.</em></h2>
+    <p class="photo-note">We had an official photographer for the day — and there are some really lovely ones. If you took any good shots yourself, please send them over.</p>
+    <p class="photographer-credit">Official photography by <a href="http://www.petercranepp.com/" target="_blank" rel="noopener">Peter Crane</a>.</p>
+  </div>
+</section>
+
+<!-- Animation -->
+<section class="band">
+  <div class="container">
+    <p class="section-label">A special thing</p>
+    <h2>The wedding<br><em>animation.</em></h2>
+    <p class="body-text">Our friends Lucy and Steve made this for us. It's wonderful. Well worth a madcap minute.</p>
+    <div class="embed-wrap" style="margin-top: 32px; padding-bottom: 56.25%;">
+      <iframe src="https://player.vimeo.com/video/7105697" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Hotels -->
+<section>
+  <div class="container">
+    <p class="section-label">Staying over</p>
+    <h2>Hotels nearby.</h2>
+    <p class="body-text" style="margin-bottom: 28px;">Everything happened in South London. We did a bit of research — these were conveniently located, though we can't personally vouch for them.</p>
+    <ul class="hotel-list">
+      <li class="hotel-item">
+        <a href="http://www.churchstreethotel.com/" target="_blank" rel="noopener">Church Street Hotel</a>
+        <p>A Spanish Americana oasis in the heart of South London. Or so they say.</p>
+      </li>
+      <li class="hotel-item">
+        <a href="http://www.thenewdomehotel.co.uk/" target="_blank" rel="noopener">The New Dome Hotel</a>
+        <p>Friendly, small, budget. Clean and comfortable close to central London.</p>
+      </li>
+      <li class="hotel-item">
+        <a href="http://www.hotelpasha.com/" target="_blank" rel="noopener">Hotel Pasha</a>
+        <p>A cosy stay in compact luxury.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Sign off -->
+<section class="band">
+  <div class="container">
+    <p class="section-label">That's all</p>
+    <h2>Lots of love<br><em>from us.</em></h2>
+    <div class="body-text">
+      <p>Thank you for being there. It was the best day.</p>
+      <p style="margin-top: 24px; font-family: var(--display); font-size: 22px; font-style: italic; color: var(--ink);">Mr &amp; Mrs Mesner Lyons x</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Carl &amp; Sally</span>
+      <span class="footer-date">5 September 2009 · South London</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
