@@ -1,0 +1,4 @@
+uploads/
+*.sql
+*.py
+.DS_Store
